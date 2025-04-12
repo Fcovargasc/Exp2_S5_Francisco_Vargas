@@ -11,16 +11,16 @@ public class Exp2_S5_Francisco_Vargas {
          static String acomuladorAsientos="";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+        String remplazo="";
         int opcion;
-        String asientos=" ";
+        String asientos="";
         int asientosDisponibles=9;
         int valorEntrada=10000;
         int tipoEntrada;
         int opcion2;
         int salir;
-        String numeroAsiento="";
-        
+        String numeroAsiento=" ";
+        String resultado = "";
         
         System.out.println("Bienvenidos al Teatro Moro");
         do{
@@ -108,7 +108,8 @@ public class Exp2_S5_Francisco_Vargas {
                 System.out.println(" comprando 5 o mas entradas 20% ");
             }
         }
-        
+               if (opcion==4){
+               precioFinal=0;}
             
         acomuladorPrecio+=precioFinal;
         acomuladorAsientos+=asientos;
@@ -120,18 +121,21 @@ public class Exp2_S5_Francisco_Vargas {
                         System.out.println("ingrese El numero y Letra de su Asiento");
                         numeroAsiento=scanner.next();
                     if (acomuladorAsientos.contains(numeroAsiento)){
-                        System.out.println("Ubicacion de asiento: "+ asientos);
+                        System.out.println("Ubicacion de asiento: "+ numeroAsiento);
                         System.out.println("precio: "+ valorEntrada);
                         System.out.println("Asiento Disponible");}
-                
-                    //  System.out.println("¿Quiere eliminar entrada? 1 si 2 no");
-                  //    opcion2=scanner.nextInt();
-                  // switch(opcion2){
-                      //case 1-> {
-                    //      System.out.println(acomuladorAsientos);
-                   //acomuladorAsientos.replace(numeroAsiento,"V");
-                   //contadorEntradas-=1;         
-                        
+               
+                     System.out.println("¿Quiere eliminar entrada? 1 si 2 no");
+                     opcion2=scanner.nextInt();
+                  switch(opcion2){
+                      case 1-> {
+                          System.out.println("acomulador asientos es: "+acomuladorAsientos);
+                          resultado=acomuladorAsientos.replace(numeroAsiento,remplazo);
+                          contadorEntradas-=1; 
+                          System.out.println("hola "+resultado);
+                          acomuladorPrecio-=precioFinal;
+                      }
+                  }   
                     }
                 }
                     System.out.println("salir 1 no 2 si");
@@ -149,7 +153,8 @@ public class Exp2_S5_Francisco_Vargas {
             acomuladorPrecio=acomuladorPrecio*0.80;}
         
          System.out.println("total entradas "+ contadorEntradas);
-         System.out.println("Ubicacion De Su Asiento: " +acomuladorAsientos);
+             
+         System.out.println("Ubicacion De Su Asiento: " +resultado);
          System.out.println("Precio General: "+ valorEntrada);
          System.out.println("Precio Final es: "+ acomuladorPrecio);
         
