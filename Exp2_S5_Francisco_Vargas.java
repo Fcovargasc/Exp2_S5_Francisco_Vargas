@@ -17,13 +17,14 @@ public class Exp2_S5_Francisco_Vargas {
         int asientosDisponibles=9;
         int valorEntrada=10000;
         int tipoEntrada;
-        int opcion2=0;
+        int opcion2;
         int salir;
         String numeroAsiento=" ";
         String resultado = "";
         do{
         System.out.println("Bienvenidos al Teatro Moro");
-        
+        //menu interactivo de 4 opciones para elegir el tipo de asiento o info sobre descuentos 
+        //se repite si  se ingresa un numero que no sea de las opciones
         System.out.println("Para comprar entrada VIP 1 para Platea 2 Para General 3 Para conocer descuentos y promociones 4");
         opcion = scanner.nextInt();
         }while (opcion>4||opcion<1);
@@ -113,6 +114,7 @@ public class Exp2_S5_Francisco_Vargas {
               if (opcion >=1 || opcion<4){
                     acomuladorPrecio+=precioFinal;
 }                   acomuladorAsientos+=asientos;
+//para validar varias preguntas fueron usados DO WHILE para verificas las respuestas y repetir el mensaje hasta que se obtiene la respuesta deseada
                 do{
                 System.out.println("¿Desea buscar informacion sobre una entrada? SI precione 1 NO precione 2");
                 opcion2=scanner.nextInt();
@@ -153,13 +155,13 @@ public class Exp2_S5_Francisco_Vargas {
                     contadorEntradas++;
                   }
         
-            
+          //si el contador cuenta  5 o mas entradas hace un descuento del 20% sobre la compra final 
+          //tambien al final mostrando informacion relevante sobre el ticket
        
         if (contadorEntradas >=5){
             acomuladorPrecio=acomuladorPrecio*0.80;}
         
-         System.out.println("total entradas "+ contadorEntradas);
-             
+         System.out.println("total entradas "+ contadorEntradas);   
          System.out.println("Ubicacion De Su Asiento: " +resultado);
          System.out.println("Precio General: "+ valorEntrada);
          System.out.println("Precio Final es: "+ acomuladorPrecio);
