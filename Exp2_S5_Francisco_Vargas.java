@@ -17,17 +17,16 @@ public class Exp2_S5_Francisco_Vargas {
         int asientosDisponibles=9;
         int valorEntrada=10000;
         int tipoEntrada;
-        int opcion2;
+        int opcion2=0;
         int salir;
         String numeroAsiento=" ";
         String resultado = "";
-        
-        System.out.println("Bienvenidos al Teatro Moro");
         do{
-            do{
+        System.out.println("Bienvenidos al Teatro Moro");
+        
         System.out.println("Para comprar entrada VIP 1 para Platea 2 Para General 3 Para conocer descuentos y promociones 4");
         opcion = scanner.nextInt();
-     
+        }while (opcion>4||opcion<1);
         switch (opcion){
             case 1 -> {
                 
@@ -109,13 +108,15 @@ public class Exp2_S5_Francisco_Vargas {
             }
         }
                if (opcion==4){
-               precioFinal=0;}
-            
-        acomuladorPrecio+=precioFinal;
-        acomuladorAsientos+=asientos;
-        
+               precioFinal=0;
+               }
+              if (opcion >=1 || opcion<4){
+                    acomuladorPrecio+=precioFinal;
+}                   acomuladorAsientos+=asientos;
+                do{
                 System.out.println("¿Desea buscar informacion sobre una entrada? SI precione 1 NO precione 2");
                 opcion2=scanner.nextInt();
+                }while(opcion2>2||opcion2<1);
                 switch (opcion2){
                     case 1-> {
                         System.out.println("ingrese El numero y Letra de su Asiento");
@@ -124,9 +125,10 @@ public class Exp2_S5_Francisco_Vargas {
                         System.out.println("Ubicacion de asiento: "+ numeroAsiento);
                         System.out.println("precio: "+ valorEntrada);
                         System.out.println("Asiento Disponible");}
-               
+               do{
                      System.out.println("¿Quiere eliminar entrada? 1 si 2 no");
                      opcion2=scanner.nextInt();
+               }while(opcion2>2||opcion2<1);
                   switch(opcion2){
                       case 1-> {
                           System.out.println("acomulador asientos es: "+acomuladorAsientos);
@@ -136,19 +138,23 @@ public class Exp2_S5_Francisco_Vargas {
                           acomuladorPrecio-=precioFinal;
                       }
                   }   
-                    }
+                   
+               }
                 }
-                    System.out.println("salir 1 no 2 si");
-                salir=scanner.nextInt();
-                if(salir ==2 && contadorEntradas==0){
-                    contadorEntradas=1;
+                do{   
+                System.out.println("salir 1 no 2 si");
+                salir=scanner.nextInt();}
+                while(salir<1||salir>2);
+                if(salir!=2){
+                    System.out.println("Entrada Invalida ingrese una opcion valida");
+                    contadorEntradas=contadorEntradas;
                 
-                } else{
+                }else{
                     contadorEntradas++;
                   }
-        }while (opcion<1&& opcion>4 );
+        
             
-        }while (salir !=2);
+       
         if (contadorEntradas >=5){
             acomuladorPrecio=acomuladorPrecio*0.80;}
         
